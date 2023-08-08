@@ -1,1 +1,1 @@
-# japanese_flag
+# Japanese national flag
