@@ -4,7 +4,7 @@ This code was made in assembler to train the connection with peripherals, which 
 
 For this project we are using the ``MIPS mars assembler simulator``. The display settings in the simulator are as follows.
 
-![Captura de Ecrã (2406)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/0209beb1-f733-4142-b3b5-9daf2c84b8d6)
+![Captura de Ecrã (2406)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/2b815652-8923-4afe-99ab-371a0f4e18e7)
 
 In the simulator we have that the height of the display is 256 but since each pixel in reality is equivalent to 4 we have that the height of the display is 256/4=64 pixels. The same happens with the length, which is equal to 512/4=128 pixels.
 
@@ -12,7 +12,7 @@ To draw the flag of Japan on the display as a first step we must parameterize th
 
 We know that we are using a 128x64 pixel display. Being that the total number of pixels is 8192. We also know that in the upper left corner is the origin of coordinates, that is, the point (0,0) and we know that ``the origin point has memory address 0x10040000 (heap)``. To advance to the next pixel we add 4 units to the base address.
 
-![Captura de Ecrã (2404)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/0457b469-3488-4d2a-b6ec-7b6607da5d30)
+![Captura de Ecrã (2404)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/ba76ef4e-368b-423a-86e7-acdeb3e2eb8b)
 
 In this project, the first operation to be carried out on the display will be to set all the pixels to black, this with the aim of cleaning it from previous designs. For that we go through all the pixels of the display and write zero in them.
 
@@ -67,4 +67,5 @@ Finally, the verify function tests the condition of the interior of the circle. 
 
 Thus, as a final result we obtain the following drawing, which is a faithful representation of the Japanese flag made in assembly MIPS.
 
-![Captura de Ecrã (2400)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/0ffa96cb-a07a-414e-a7ad-1d2730f01e2d)
+![Captura de Ecrã (2400)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/0867cd27-9924-4cd8-b10d-3751cb3ffbe4)
+
