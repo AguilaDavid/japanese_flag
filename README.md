@@ -31,3 +31,36 @@ in the above code we use the address tag contains the base address that is passe
 
 Now we need to build the white background for that we use a reasoning similar to the previous one only that instead of writing zero in the pixels we write the white color code that is 0xFFFFFFFF
 
+Having the white background now we only need to create the circumference in the center of the rectangle.
+
+To create the circle we will go through all the pixels of the display and we will verify if it belongs to the interior of the circumference. For this we use the following formula:
+
+```assembly
+	# formula of a circle with center=(h,k) and R=radius
+	# 0 > (x - h)^2 + (y - k)^2 - R^2
+```
+
+Since the center of the circle coincides with the center of the rectangle, then the center of the circle is (h=64,k=32). In this project we consider the radius of the circle being equal to R=25.
+
+To get the variables x and y. What we do is have two nested cycles so that in each line x is increased and when we go to the next line, we increase y and restart x.
+
+```assembly
+loop:
+	# prepare function arguments
+	la	$a0,0($t1)		# send x coordinate
+	la	$a1,0($t2)		# send y coordinate
+	jal	verify			# go to the function verify
+	
+	addi	$t0,$t0,4		# advance to the next pixel
+	
+	add	$t1,$t1,1		# counter: controller repetitions in a colunm
+	blt	$t1,128,loop		# if ($t1 < 128) branch to loop
+	
+	li	$t1,0
+	addi	$t2,$t2,1		# counter: controller repetitions in a line
+	blt	$t2,64,loop		# if ($t2 < 64) branch to loop
+```
+
+Being that in the previous example the $t1 register has the x coordinate and the $t2 register has the y coordinate.
+
+Finally, the verify function tests the condition of the interior of the circle. If verified, the pixel is painted.
