@@ -1,4 +1,4 @@
-# Japanese national flag
+# Japanese national flag made in MIPS assembly
 
 This code was made in assembler to train the connection with peripherals, which in this case is display.
 
