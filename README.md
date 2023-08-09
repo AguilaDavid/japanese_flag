@@ -9,3 +9,15 @@ We know that we are using a 128x64 pixel display. Being that the total number of
 ![Captura de Ecrã (2404)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/0457b469-3488-4d2a-b6ec-7b6607da5d30)
 
 In this project, the first operation to be carried out on the display will be to set all the pixels to black, this with the aim of cleaning it from previous designs. For that we go through all the pixels of the display and write zero in them.
+
+```assembly
+clear_bitmap_display:
+	la $s0,address
+	lw $t9,0($s0)			# counter: controller of the repetitions of the cycle
+clear_loop:
+	sw $zero, 0($t9)
+	addi $t9, $t9, 4 
+	blt $t9, 0x10048000, clear_loop # if ($t9 < base_adress + 4 * 8192 = 0x10048000) branch to clear_loop
+	jr $ra				# jump to caller
+```
+
