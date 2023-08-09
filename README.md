@@ -64,3 +64,7 @@ loop:
 Being that in the previous example the $t1 register has the x coordinate and the $t2 register has the y coordinate.
 
 Finally, the verify function tests the condition of the interior of the circle. If verified, the pixel is painted.
+
+Thus, as a final result we obtain the following drawing, which is a faithful representation of the Japanese flag made in assembly MIPS.
+
+![Captura de Ecrã (2400)](https://github.com/AguilaDavid/japanese_flag/assets/125582704/0ffa96cb-a07a-414e-a7ad-1d2730f01e2d)
